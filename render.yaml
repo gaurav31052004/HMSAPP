@@ -2,7 +2,6 @@ services:
   - type: web
     name: hms-api
     env: node
-    plan: free
     buildCommand: npm install && npm --workspace server install
     startCommand: npm start:server
     envVars:
@@ -10,6 +9,8 @@ services:
         value: 5000
       - key: MONGODB_URI
         sync: false
+      - key: NODE_VERSION
+        value: 20
 
   - type: web
     name: hms-client
@@ -22,3 +23,5 @@ services:
           type: web
           name: hms-api
           envVarKey: RENDER_EXTERNAL_URL
+      - key: NODE_VERSION
+        value: 20
