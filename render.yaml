@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: hms-api
+    env: node
+    plan: free
+    buildCommand: npm install && npm --workspace server install
+    startCommand: npm start:server
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false
+
+  - type: web
+    name: hms-client
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build:client
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: hms-api
+          envVarKey: RENDER_EXTERNAL_URL

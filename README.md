@@ -1,3 +1,10 @@
+# 📦 Submission
+
+- **Live URL**: *(Update this once deployed on Render)*
+- **GitHub repo**: https://github.com/gaurav31052004/HMSAPP
+
+---
+
 # Hospital Management System (MERN)
 
 A full-stack hospital management system built with MongoDB, Express, React, and Node.js.
@@ -31,10 +38,10 @@ npm run install:all
 2. Create a backend environment file:
 
 ```bash
-copy server\\.env.example server\\.env
+copy server\.env.example server\.env
 ```
 
-3. Start MongoDB locally and seed sample data:
+3. Start MongoDB locally (or provide a remote MongoDB URI in your `.env`) and seed sample data:
 
 ```bash
 npm --workspace server run seed
@@ -62,6 +69,6 @@ npm run dev:client
 
 ## Notes
 
-- Frontend expects backend at `http://localhost:5000/api`
-- Default Vite frontend runs on `http://localhost:5173`
-- Update `client/src/api/hospitalApi.js` if your backend URL changes
+- Frontend expects backend at `http://localhost:5000/api` by default.
+- Default Vite frontend runs on `http://localhost:5173`.
+- Update the `VITE_API_URL` environment variable if your backend URL changes in production.
