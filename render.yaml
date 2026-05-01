@@ -14,7 +14,6 @@ services:
   - type: web
     name: hms-client
     env: static
-    plan: free
     buildCommand: npm install && npm run build:client
     staticPublishPath: ./client/dist
     envVars:
